@@ -2,6 +2,6 @@ FROM nginx:alpine
 
 COPY nginx.conf /etc/nginx/nginx.conf.template
 
-CMD envsubst < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf && nginx -g 'daemon off;'
+CMD envsubst < /etc/nginx/nginx.conf.template > /tmp/nginx.conf && nginx -g 'daemon off;' -c /tmp/nginx.conf
 
-EXPOSE 80 8080
+EXPOSE 8080
